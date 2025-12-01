@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skin Care - Home</title>
+    <title>Products - Glow SkinCare</title>
 
     <style>
         *{
@@ -13,13 +13,12 @@
             font-family: "Poppins", Arial, sans-serif;
         }
 
-        /* LAVENDER BACKGROUND */
         body{
-            background: #f5f2f9; /* soft lavender white */
+            background: #f5f2f9;
             color: #3a3a3a;
         }
 
-        /* LAVENDER GLASS HEADER */
+        /* HEADER */
         header{
             width: 100%;
             padding: 15px 20px;
@@ -30,17 +29,14 @@
             top: 0;
             left: 0;
             z-index: 1000;
-
             background: rgba(245, 242, 249, 0.75);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-
             border-bottom: 1px solid rgba(200,200,200,0.3);
         }
 
         header h2{
+            color: #7a68c5;
             font-size: 26px;
-            color: #7a68c5; /* lavender title */
             font-weight: 600;
         }
 
@@ -55,107 +51,62 @@
         }
 
         nav a:hover{
-            background: rgba(171, 154, 217, 0.35); /* lavender hover */
+            background: rgba(171,154,217,0.35);
         }
 
-        /* HERO SECTION */
-        .hero{
-            width: 100%;
-            padding: 120px 8% 50px;
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .hero .text{
-            flex: 1;
-        }
-
-        .hero h1{
-            font-size: 40px;
-            color: #5f4ea3; /* lavender dark */
-        }
-
-        .hero p{
-            margin: 15px 0;
-            font-size: 18px;
-            color: #6a608a;
-        }
-
-        /* BUTTON - lavender */
-        .btn{
-            display: inline-block;
-            padding: 12px 22px;
-            background: #a392d7;
-            color: #fff;
-            border-radius: 6px;
-            font-size: 18px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn:hover{
-            background: #8a78c9;
-        }
-
-        .hero img{
-            width: 420px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(100, 80, 150, 0.2);
-        }
-
-        /* PRODUCT SECTION */
-        .products{
-            padding: 40px 8%;
-            background: #fff;
-            border-radius: 20px 20px 0 0;
-        }
-
-        .products h2{
-            font-size: 32px;
-            color: #5f4ea3;
-            margin-bottom: 25px;
+        /* PAGE TITLE */
+        .title-box{
+            padding: 150px 8% 30px;
             text-align: center;
         }
 
-        .product-box{
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
+        .title-box h1{
+            font-size: 40px;
+            color: #5f4ea3;
         }
 
-        .card{
-            width: 32%;
-            background: #f1ecfa; /* lavender card */
-            padding: 18px;
+        /* PRODUCT GRID */
+        .product-grid{
+            padding: 20px 8% 60px;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 25px;
+        }
+
+        .product-card{
+            background: #f1ecfa;
             border-radius: 14px;
+            padding: 18px;
             text-align: center;
             box-shadow: 0 3px 12px rgba(150,120,200,0.15);
             transition: 0.3s;
         }
 
-        .card:hover{
+        .product-card:hover{
             transform: translateY(-5px);
             box-shadow: 0 6px 18px rgba(150,120,200,0.25);
         }
 
-        .card img{
+        .product-card img{
             width: 100%;
-            height: 250px;
+            height: 260px;
             object-fit: cover;
             border-radius: 12px;
         }
 
-        .card h3{
-            margin-top: 10px;
+        .product-card h3{
+            margin-top: 12px;
             color: #5f4ea3;
+            font-size: 20px;
             font-weight: 600;
         }
 
-        .card p{
-            font-size: 15px;
+        .price{
             color: #6a608a;
+            font-size: 17px;
+            margin: 5px 0 12px;
         }
+
 
         /* FOOTER SECTION */
         footer{
@@ -207,18 +158,14 @@
             margin: 6px 0;
         }
 
-       
-
-       
-
         .footer-bottom{
             text-align: center;
             padding: 12px 0;
             background: rgba(95, 78, 163, 0.15);
             color: #4c3b78;
-            margin-top: 20px;
             font-size: 15px;
         }
+
     </style>
 </head>
 
@@ -235,44 +182,55 @@
         </nav>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="text">
-            <h1>Natural Skin Care For Your Healthy Glow</h1>
-            <p>Glow SkinCare offers 100% natural, organic, and dermatologically tested skin products.</p>
-            <a class="btn" href="/products">Shop Now</a>
+
+    <!-- TITLE -->
+    <div class="title-box">
+        <h1>Our SkinCare Collection</h1>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <section class="product-grid">
+
+        <div class="product-card">
+            <img src="https://i.pinimg.com/1200x/07/d7/7c/07d77cf4d0f0fb8f90a299c150737ffa.jpg">
+            <h3>Moisturizing Face Cream</h3>
+            <div class="price">₹899</div>
         </div>
 
-        <img src="https://i.pinimg.com/1200x/25/b4/4f/25b44f1b680cbf32dd1eb9b773b5c2d3.jpg" alt="skincare">
-    </section>
-
-    <!-- PRODUCTS -->
-    <section class="products">
-        <h2>Our Best Sellers</h2>
-
-        <div class="product-box">
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/d7/70/3b/d7703bd6b7bdf420b7fa780992faaa8d.jpg" alt="">
-                <h3>Hydrating Face Cream</h3>
-                <p>Moisturizes your skin for 24 hours.</p>
-            </div>
-
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/97/48/73/9748735afc553c0371adbd16e1dcd85d.jpg" alt="">
-                <h3>Vitamin C Serum</h3>
-                <p>Brightens your skin naturally.</p>
-            </div>
-
-            <div class="card">
-                <img src="https://i.pinimg.com/1200x/7c/ca/f1/7ccaf138394eb731b7d5fdae8cb2b7ac.jpg" alt="">
-                <h3>Detox Clay Mask</h3>
-                <p>Deep cleans your pores gently.</p>
-            </div>
+        <div class="product-card">
+            <img src="https://i.pinimg.com/736x/d6/50/6e/d6506e39d7c6b59e07c10f48995c7c92.jpg">
+            <h3>Vitamin C Glow Serum</h3>
+            <div class="price">₹1299</div>
         </div>
+
+        <div class="product-card">
+            <img src="https://i.pinimg.com/736x/59/8d/fa/598dfac89ee898adc59afc0615a772c7.jpg">
+            <h3>Deep Detox Clay Mask</h3>
+            <div class="price">₹749</div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://i.pinimg.com/736x/6f/f0/fd/6ff0fd28f7836c572a84613dff6fe25c.jpg">
+            <h3>Hydrating Toner Mist</h3>
+            <div class="price">₹599</div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://i.pinimg.com/736x/9b/58/92/9b589247a9f46b7295bbf30e53367e33.jpg">
+            <h3>Sun Protection SPF 50</h3>
+            <div class="price">₹899</div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://i.pinimg.com/736x/59/26/c8/5926c88a3afc765e3f254522c33c6ea6.jpg">
+            <h3>Night Repair Cream</h3>
+            <div class="price">₹1499</div>
+        </div>
+
     </section>
 
 
-    <!-- FOOTER -->
+    <!-- FIXED FOOTER (OUTSIDE SECTION!!) -->
     <footer>
         <div class="footer-container">
 
@@ -300,6 +258,7 @@
             © 2025 Glow SkinCare • All Rights Reserved
         </div>
     </footer>
+
 
 </body>
 </html>

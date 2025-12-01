@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Glow SkinCare</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", Arial, sans-serif;
+        }
+
+        body{
+            background: #f5f2f9;
+            color: #3a3a3a;
+        }
+
+        /* HEADER */
+        header{
+            width: 100%;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(245, 242, 249, 0.75);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(200,200,200,0.3);
+        }
+
+        header h2{
+            font-size: 26px;
+            color: #7a68c5;
+            font-weight: 600;
+        }
+
+        nav a{
+            margin-left: 20px;
+            color: #3a3a3a;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        nav a:hover{
+            background: rgba(171,154,217,0.35);
+        }
+
+
+        /* CONTACT SECTION */
+        .container{
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 150px 20px 60px;
+        }
+
+        h1{
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 25px;
+            color: #5f4ea3;
+        }
+
+        .form-box{
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 4px 20px rgba(120, 90, 170, 0.15);
+        }
+
+        label{
+            display: block;
+            margin-bottom: 6px;
+            color: #6a608a;
+        }
+
+        input, textarea{
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #c9bce8;
+            background: #f6f3fb;
+            margin-bottom: 18px;
+            outline: none;
+            font-size: 16px;
+            transition: .3s;
+        }
+
+        input:focus, textarea:focus{
+            border-color: #a392d7;
+            box-shadow: 0 0 0 3px rgba(163,146,215,0.25);
+        }
+
+        textarea{
+            height: 140px;
+            resize: none;
+        }
+
+        .btn{
+            background: #a392d7;
+            color: #fff;
+            padding: 12px 22px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover{
+            background: #8a78c9;
+        }
+
+/* FOOTER */
+        /* FOOTER SECTION */
+        footer{
+            background: linear-gradient(135deg, #e9e2f8, #d7c9f3);
+            margin-top: 50px;
+            padding-top: 40px;
+            color: #4c3b78;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -4px 20px rgba(150,120,200,0.15);
+        }
+
+        .footer-container{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 8% 30px;
+            gap: 40px;
+        }
+
+        .footer-section{
+            width: 32%;
+        }
+
+        .footer-section h3{
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #5f4ea3;
+        }
+
+        .footer-section h4{
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #6d5bb3;
+        }
+
+        .footer-section a{
+            display: block;
+            margin: 6px 0;
+            text-decoration: none;
+            color: #53457c;
+            transition: 0.3s;
+        }
+
+        .footer-section a:hover{
+            color: #7a68c5;
+        }
+
+        .footer-section p{
+            color: #53457c;
+            margin: 6px 0;
+        }
+
+        .footer-bottom{
+            text-align: center;
+            padding: 12px 0;
+            background: rgba(95, 78, 163, 0.15);
+            color: #4c3b78;
+            font-size: 15px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <h2>Glow SkinCare</h2>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/products">Products</a>
+           
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- CONTACT FORM -->
+    <div class="container">
+        <h1>Contact Us</h1>
+
+        <div class="form-box">
+            <form>
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your name" required>
+
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email" required>
+
+                <label>Your Message</label>
+                <textarea placeholder="Write your message here..." required></textarea>
+
+                <button class="btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER (same as product page) -->
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-section">
+                <h3>Glow SkinCare</h3>
+                <p>Natural, organic and dermatologically tested skincare products for a glowing you.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="/">Home</a>
+                <a href="/products">Products</a>
+                <a href="/content">Content</a>
+                <a href="/contact">Contact</a>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: glowcare@gmail.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 Glow SkinCare • All Rights Reserved
+        </div>
+    </footer>
+
+</body>
+</html>
+        

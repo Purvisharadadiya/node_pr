@@ -2,29 +2,30 @@ const http = require('http');
 const fs = require('fs');
 
 const server = http.createServer((req, res) => {
-    
+
     let filepath = "";
 
-    
+
     switch (req.url) {
         case "/":
             filepath = "home.html";
             break;
 
-        case "/about":
-            filepath = "about.html";
+        case "/products":
+            filepath = "products.html";
             break;
 
-            case "/content":
-            filepath = "content.html";
+        case "/contact":
+            filepath = "contact.html";
             break;
+
         default:
             filepath = "404_not_found.html";
             break;
     }
 
     let err;
-    
+
     fs.readFile(filepath, "utf-8", (err, data) => {
         if (err) {
             res.writeHead(500, { "Content-Type": "text/plain" });
