@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Task</title>
+
+    <style>
+         body{
+            margin:0;
+            padding:0;
+            background:#181831;
+            font-family:sans-serif;
+            color:#fff;
+        }
+        .container{
+            width:400px;
+            margin:40px auto;
+            background:#26264a;
+            padding:20px;
+            border-radius:12px;
+        }
+
+        input,select{
+            width:100%;
+            padding:8px;
+            border:none;
+            border-radius:6px;
+        }
+
+        button{
+            padding:8px 14px;
+            border:none;
+            border-radius:6px;
+            background:#43aa8b;
+            color:#fff;
+            cursor:pointer;
+            margin-top:10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Edit Task</h1>
+    
+    <form action="/update-task?taskId=<%= task.id %>" method="post">
+
+        <label>Task</label>
+        <input type="text" name="task" value="<%= task.task %>">
+
+        <label>Priority</label>
+        <select name="priority">
+            <option <%= task.priority=="High"?"selected":"" %>>High</option>
+            <option <%= task.priority=="Medium"?"selected":"" %>>Medium</option>
+            <option <%= task.priority=="Low"?"selected":"" %>>Low</option>
+        </select>
+
+        <button>Update</button>
+
+    </form>
+</div>
+
+</body>
+</html>
