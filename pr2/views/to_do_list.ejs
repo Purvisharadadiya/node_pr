@@ -1,119 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My To-Do List</title>
-
-    <style>
-        body{
-            margin:0;
-            padding:0;
-            font-family: sans-serif;
-            background:#181831;
-            color:#fff;
-        }
-
-        .container{
-            width:400px;
-            margin:30px auto;
-            background:#26264a;
-            padding:20px;
-            border-radius:12px;
-        }
-
-        h1{ text-align:center; }
-
-        .input-sec{
-            display:flex;
-            gap:10px;
-            margin-bottom:20px;
-        }
-
-        input,select{
-            width:100%;
-            padding:8px;
-            border:none;
-            border-radius:6px;
-        }
-
-        button{
-            padding:8px 14px;
-            border:none;
-            border-radius:6px;
-            background:#4e9af1;
-            color:#fff;
-            cursor:pointer;
-        }
-
-        table{
-            width:100%;
-            margin-top:10px;
-            font-size:14px;
-            border-collapse:collapse;
-        }
-
-        th,td{
-            padding:10px;
-            text-align:center;
-            background:#1e1e3c;
-        }
-
-        .btn-del{
-            background:#e63946;
-        }
-
-        .btn-edit{
-            background:#43aa8b;
-        }
-
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
+    <style>
+        body{
+    font-family: Arial;
+    background:#f7f7f7;
+}
 
-    <div class="container">
-        <h1> My To-Do List</h1>
+.title{
+    margin-bottom:10px;
+}
 
-        <!-- ADD TASK -->
-        <form action="/add-task" method="post">
-            <div class="input-sec">
-                <input type="text" name="id" placeholder="ID">
-                <input type="text" name="task" placeholder="Task Name">
+.line{
+    width:60%;
+}
 
-                <select name="priority">
-                    <option>High</option>
-                    <option>Medium</option>
-                    <option>Low</option>
-                </select>
+.add-form{
+    margin-bottom:15px;
+    display:flex;
+    gap:10px;
+    justify-content:center;
+}
 
-                <button>Add</button>
-            </div>
-        </form>
+.add-form input, 
+.add-form select{
+    padding:6px;
+    border-radius:6px;
+    border:1px solid #aaa;
+}
 
-        <!-- TABLE -->
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Task</th>
-                <th>Priority</th>
-                <th>Action</th>
-            </tr>
+.btn{
+    padding:6px 14px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
 
-            <% todo.forEach(t => { %>
-            <tr>
-                <td><%= t.id %></td>
-                <td><%= t.task %></td>
-                <td><%= t.priority %></td>
-                <td>
-                    <a href="/delete-task/<%= t.id %>">
-                        <button class="btn-del">🗑</button>
-                    </a>
-                    <a href="/edit-task/<%= t.id %>">
-                        <button class="btn-edit">✏️</button>
-                    </a>
-                </td>
-            </tr>
-            <% }) %>
-        </table>
-    </div>
+/* Table */
+.list-table{
+    width:760px;
+    border-collapse:collapse;
+    box-shadow:0px 2px 18px rgba(0,0,0,0.1);
+}
 
+.list-table td{
+    padding:10px;
+    text-align:center;
+}
+
+.header{
+    background:#ececff;
+    font-weight:bold;
+}
+
+/* Buttons */
+.edit{
+    background:#6c63ff;
+    color:white;
+}
+
+.delete{
+    background:#ff4b4b;
+    color:white;
+}
+
+/* Badges */
+.badge{
+    padding:6px 10px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.high{
+    background:#ffb3b3;
+}
+
+.medium{
+    background:#fff4a6;
+}
+
+.low{
+    background:#b2ffb7;
+}
+
+    </style>
 </body>
 </html>
+<center>
+
+
+
+   <center>
+
+    <h1 class="title">TO DO LIST</h1>
+    <hr class="line">
+
+    <form action="/add-task" method="post" class="add-form">
+        <input type="text" name="id" placeholder="ID" required>
+        <input type="text" name="task" placeholder="Task Name" required>
+
+        <select name="priority">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+        </select>
+
+        <input type="text" name="category" placeholder="Category" required>
+        <input type="date" name="dueDate">
+
+        <button class="btn">Add</button>
+    </form>
+
+    <table class="list-table">
+        <tr class="header">
+            <td>ID</td>
+            <td>Task</td>
+            <td>Priority</td>
+            <td>Category</td>
+            <td>Due Date</td>
+            <td>Actions</td>
+        </tr>
+
+        <% todo.forEach(item => { %>
+        <tr>
+            <td><%= item.id %></td>
+            <td><%= item.task %></td>
+
+            <td>
+                <span class="badge <%= item.priority.toLowerCase() %>">
+                    <%= item.priority %>
+                </span>
+            </td>
+
+            <td><%= item.category %></td>
+            <td><%= item.dueDate %></td>
+
+            <td>
+                <a href="/delete-task/<%= item.id %>" 
+                   style="padding:6px 12px;color:#fff;background:#ff4b4b;border-radius:6px;text-decoration:none;">
+                    Delete
+                </a>
+
+                <a href="/edit-task/<%= item.id %>" 
+                   style="padding:6px 12px;color:#fff;background:#6c63ff;border-radius:6px;text-decoration:none;margin-left:6px;">
+                    Edit
+                </a>
+            </td>
+
+        </tr>
+        <% }) %>
+
+    </table>
+
+</center>
+
+ 
