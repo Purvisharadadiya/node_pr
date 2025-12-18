@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Book</title>
+</head>
+
+<body>
+
+    <center>
+        <h2>Edit Book</h2>
+
+        <form action="/update_book/<%= books._id %>" method="post">
+
+            <input type="text" name="bookName" value="<%= books.bookName %>" placeholder="Book Name" required>
+            <br><br>
+
+            <input type="text" name="author" value="<%= books.author %>" placeholder="Author Name" required>
+            <br><br>
+
+            <select name="category">
+                <option <%=books.category=="Story" ? "selected" : "" %>>Story</option>
+                <option <%=books.category=="Novel" ? "selected" : "" %>>Novel</option>
+                <option <%=books.category=="Education" ? "selected" : "" %>>Education</option>
+                <option <%=books.category=="Programming" ? "selected" : "" %>>Programming</option>
+            </select>
+            <br><br>
+
+            <input type="number" name="price" value="<%= books.price %>" placeholder="Price">
+            <br><br>
+
+            <input type="number" name="quantity" value="<%= books.quantity %>" placeholder="Quantity">
+            <br><br>
+
+            <textarea name="description" placeholder="Description"><%= books.description %></textarea>
+            <br><br>
+
+            <input type="text" name="img" value="<%= books.img %>" placeholder="Image URL">
+            <br><br>
+
+            <button type="submit">Update</button>
+        </form>
+
+        <br>
+
+    </center>
+
+</body>
+
+</html>

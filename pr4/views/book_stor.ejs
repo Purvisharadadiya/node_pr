@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book Store</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 10px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .book-card h3 {
+            margin: 4px 0;
+            font-size: 16px;
+        }
+
+        .book-card p {
+            margin: 2px 0;
+
+            font-size: 13px;
+            line-height: 1.2;
+
+        }
+
+        .price {
+            margin: 4px 0;
+        }
+
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .col-6 {
+            width: calc(50% - 8px);
+        }
+
+
+        .form-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .form-grid input,
+        .form-grid select {
+            width: calc(90% - 6px);
+        }
+
+        .full {
+            width: 100% !important;
+        }
+
+        textarea {
+            resize: none;
+            height: 70px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input,
+        select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .btn-add {
+            background: #4CAF50;
+            color: #fff;
+        }
+
+        .btn-edit {
+            background: #2196F3;
+            color: #fff;
+        }
+
+        .btn-delete {
+            background: #f44336;
+            color: #fff;
+        }
+
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 10px;
+        }
+
+        .book-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .card-actions a {
+            flex: 1;
+            text-decoration: none;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        .full {
+            grid-column: 1 / -1;
+
+        }
+
+
+
+        @media(max-width:600px) {
+
+            .col-6,
+            .form-grid input,
+            .form-grid select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="/add-book" method="post" class="form-grid">
+
+            <input type="text" name="bookName" placeholder="Book Name" required>
+            <input type="text" name="author" placeholder="Author Name" required>
+
+            <select name="category">
+                <option>Story</option>
+                <option>Novel</option>
+                <option>Education</option>
+                <option>Programming</option>
+            </select>
+
+            <input type="number" name="price" placeholder="Price">
+
+            <input type="number" name="quantity" placeholder="Quantity">
+            <input type="text" name="img" placeholder="Image URL">
+
+            <textarea name="description" placeholder="Description" class="full"></textarea>
+
+            <button class="btn btn-add full" type="submit">Add Book</button>
+
+        </form>
+
+
+        <h2>Book List</h2>
+
+        <div class="book-grid">
+            <% books.forEach(book=> { %>
+                <div class="book-card">
+                    <img src="<%= book.img %>">
+                    <h3>
+                        <%= book.bookName %>
+                    </h3>
+                    <p><b>Author:</b>
+                        <%= book.author %>
+                    </p>
+                    <p><b>Category:</b>
+                        <%= book.category %>
+                    </p>
+                    <p><b>Quantity:</b>
+                        <%= book.quantity %>
+                    </p>
+                    <p class="price">₹ <%= book.price %>
+                    </p>
+
+                    <div class="card-actions">
+                        <a href="/edit_book/<%= book._id %>">
+                            <button class="btn btn-edit">Edit</button>
+                        </a>
+                        <a href="/delete_book/<%= book._id %>" onclick="return confirm('Are you sure?')">
+                            <button class="btn btn-delete">Delete</button>
+                        </a>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
