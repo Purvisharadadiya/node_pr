@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Movie</title>
+  <link rel="stylesheet" href="/css/from.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+
+<%- include("common/header") %>
+
+<center>
+<div class="movie-form">
+  <h2> Movie Details</h2>
+
+  <form action="/movie-add" method="post" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Movie Title" required>
+
+    <select name="genre">
+      <option value="">Select Genre</option>
+      <option>Action</option>
+      <option>Drama</option>
+      <option>Comedy</option>
+    </select>
+
+    <input type="text" name="language" placeholder="Language">
+    <textarea name="description" placeholder="Movie Description"></textarea>
+    <input type="file" name="poster" placeholder="PosterImage URL">
+
+    <button type="submit">Add Movie</button>
+  </form>
+</div>
+</center>
+<%- include("common/footer") %>
+
+</body>
+</html>

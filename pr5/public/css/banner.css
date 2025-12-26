@@ -1,0 +1,89 @@
+/* ===== BANNER ===== */
+.banner {
+  position: relative;
+  height: 590px;
+  background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.banner-content {
+  position: relative;
+  text-align: center;
+  color: white;
+  max-width: 700px;
+  padding: 20px;
+}
+
+.banner-content h1 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.banner-content h1 span {
+  color: #ef4444;
+}
+
+.banner-content p {
+  font-size: 17px;
+  color: #e5e7eb;
+  margin-bottom: 22px;
+}
+
+/* Buttons */
+.banner-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.banner-btn {
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.banner-btn.primary {
+  background: #ef4444;
+  color: white;
+}
+
+.banner-btn.primary:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+}
+
+.banner-btn.secondary {
+  border: 2px solid white;
+  color: white;
+}
+
+.banner-btn.secondary:hover {
+  background: white;
+  color: #111827;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .banner-content h1 {
+    font-size: 30px;
+  }
+
+  .banner {
+    height: 260px;
+  }
+
+  .banner-buttons {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Update Movie</title>
+  <link rel="stylesheet" href="/css/from.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+
+  <%- include("common/header") %>
+
+  <center>
+    <div class="movie-form">
+      <h2> Update Movie</h2>
+
+      <form action="/movies-update/<%= movie._id %>" method="post" enctype="multipart/form-data">
+
+        <input type="text" name="title" placeholder="Movie Title" value="<%= movie.title %>" required>
+
+        <select name="genre" required>
+          <option value="">Select Genre</option>
+          <option <%= movie.genre==="Action" ? "selected" : "" %>>Action</option>
+          <option <%= movie.genre==="Drama" ? "selected" : "" %>>Drama</option>
+          <option <%= movie.genre==="Comedy" ? "selected" : "" %>>Comedy</option>
+        </select>
+
+        <input type="text" name="language" placeholder="Language" value="<%= movie.language %>">
+
+        <textarea name="description" placeholder="Movie Description"><%= movie.description %></textarea>
+
+       
+        <label>Current Poster</label><br>
+
+        <% if (movie.poster) { %>
+          <img 
+            src="<%= movie.poster %>"
+            alt="poster"
+            style="width:120px; border-radius:10px; margin:10px 0;"
+          >
+        <% } %>
+
+        
+
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </center>
+
+  <%- include("common/footer") %>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+.movie-header {
+  background: linear-gradient(90deg, #0f172a, #1e293b);
+  color: #f8fafc;
+  padding: 14px 40px;
+  display: flex;
+  justify-content: space-between;
+  
+}
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #f8fafc;
+
+}
+
+.logo span a {
+  color: #ef4444;
+  text-decoration: none;
+}
+
+.menu a {
+  color: #e5e7eb;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #ef4444;
+}
+
+
+.add-movie-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 22px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.add-movie-btn:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-2px);
+}
