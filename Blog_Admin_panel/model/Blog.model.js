@@ -16,11 +16,18 @@ const Blogschema = mongoose.Schema({
     category: {
         type: String
     },
+    views: {
+        type: Number,
+        default: 0
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    },
     image: {
         type: String
     },
-    Status: {
-        type: String
-    }
+
+
 })
 module.exports = mongoose.model('Blog', Blogschema)

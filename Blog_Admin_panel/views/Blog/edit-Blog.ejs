@@ -1,0 +1,113 @@
+<%- include("../heder") %>
+
+<div class="page-wrapper">
+
+    <!-- Breadcrumb -->
+    <div class="page-breadcrumb">
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex no-block">
+                <h4 class="page-title">Edit Blog</h4>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                            <li class="breadcrumb-item active">Edit Blog</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+
+                    <form method="POST" action="/Blog/update-Blog/<%= Blog._id %>" enctype="multipart/form-data">
+
+                        <div class="card-body">
+                            <h4 class="card-title text-center">Edit Blog</h4>
+
+                            <!-- Title -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-right">Blog Title</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="title"
+                                        value="<%= Blog.title %>" required>
+                                </div>
+                            </div>
+
+                            <!-- Short Description -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-right">Short Description</label>
+                                <div class="col-sm-9">
+                                    <input type="text" class="form-control" name="short_desc"
+                                        value="<%= Blog.short_desc %>">
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-right">Content</label>
+                                <div class="col-sm-9">
+                                    <textarea class="form-control" rows="6" name="content"
+                                        required><%= Blog.content %></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-right">Category</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" name="category">
+                                        <option value="">Select Category</option>
+                                        <option value="Technology" <%= Blog.category=="Technology" ? "selected" : "" %>>Technology</option>
+                                        <option value="Travel" <%= Blog.category=="Travel" ? "selected" : "" %>>Travel</option>
+                                        <option value="Lifestyle" <%= Blog.category=="Lifestyle" ? "selected" : "" %>>Lifestyle</option>
+                                        <option value="Education" <%= Blog.category=="Education" ? "selected" : "" %>>Education</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Date (FIXED) -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-right">Blog Date</label>
+                                <div class="col-sm-9">
+                                    <input type="date" class="form-control" name="date"
+                                        value="<%= Blog.date ? Blog.date.toISOString().split('T')[0] : '' %>"
+                                        required>
+                                </div>
+                            </div>
+
+                            <!-- Image -->
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label text-right">Blog Image</label>
+                                <div class="col-sm-9">
+                                    <img src="<%= Blog.image %>" width="80" class="mb-2 d-block">
+
+                                    <input type="file" class="custom-file-input" id="blogImage" name="image">
+                                    <label class="custom-file-label" for="blogImage">Change image…</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="border-top">
+                            <div class="card-body text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    Update Blog
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../footer") %>

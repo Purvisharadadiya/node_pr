@@ -13,8 +13,6 @@ exports.getAllMovies = async (req, res) => {
     return res.send("Error loading movies");
   }
 };
-
-
 exports.addMoviePage = (req, res) => {
   return res.render("add-movie");
 };

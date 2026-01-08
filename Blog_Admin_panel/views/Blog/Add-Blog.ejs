@@ -1,117 +1,117 @@
 <%- include("../heder") %>
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-                <div class="page-breadcrumb">
-                <div class="row justify-content-center">
-                    <div class="col-12 d-flex no-block ">
-                        <h4 class="page-title">Add-Admin Infromation</h4>
-                        <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-  
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <div class="card">
-
-      <form class="form-horizontal" method="POST" action="/Blog/Add-Blog" enctype="multipart/form-data">
-        <div class="card-body">
-
-          <h4 class="card-title text-center">Add Blog</h4>
-
-          <!-- Blog Title -->
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label text-right">Blog Title</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="title" placeholder="Enter blog title" required>
-            </div>
-          </div>
-
-          <!-- Short Description -->
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label text-right">Short Description</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="short_desc" placeholder="Short intro">
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label text-right">Content</label>
-            <div class="col-sm-9">
-              <textarea class="form-control" rows="6" name="content" placeholder="Write full blog here..." required></textarea>
-            </div>
-          </div>
-
-          <!-- Category -->
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label text-right">Category</label>
-            <div class="col-sm-9">
-              <select class="form-control" name="category">
-                <option value="">Select Category</option>
-                <option>Technology</option>
-                <option>Travel</option>
-                <option>Lifestyle</option>
-                <option>Education</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Image Upload -->
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label text-right">Blog Image</label>
-            <div class="col-sm-9">
-              <input type="file" class="custom-file-input" id="blogImage" name="image">
-              <label class="custom-file-label" for="blogImage">Choose image…</label>
-            </div>
-          </div>
-
-          <!-- Status -->
-          <div class="form-group row">
-            <label class="col-sm-3 col-form-label text-right">Status</label>
-            <div class="col-sm-9">
-              <select class="form-control" name="status">
-                <option value="active">Active</option>
-                <option value="draft">Draft</option>
-              </select>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="border-top">
-          <div class="card-body text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
+  <!-- Page wrapper  -->
+  <!-- ============================================================== -->
+  <div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row justify-content-center">
+        <div class="col-12 d-flex no-block ">
+          <h4 class="page-title">Add-Admin Infromation</h4>
+          <div class="ml-auto text-right">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+              </ol>
+            </nav>
           </div>
         </div>
-
-      </form>
-
+      </div>
     </div>
-  </div>
-</div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+
+            <form class="form-horizontal" method="POST" action="/Blog/Add-Blog" enctype="multipart/form-data">
+              <div class="card-body">
+
+                <h4 class="card-title text-center">Add Blog</h4>
+
+                <!-- Blog Title -->
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label text-right">Blog Title</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="title" placeholder="Enter blog title" required>
+                  </div>
+                </div>
+
+                <!-- Short Description -->
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label text-right">Short Description</label>
+                  <div class="col-sm-9">
+                    <input type="text" class="form-control" name="short_desc" placeholder="Short intro">
+                  </div>
+                </div>
+
+                <!-- Content -->
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label text-right">Content</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control" rows="6" name="content" placeholder="Write full blog here..."
+                      required></textarea>
+                  </div>
+                </div>
+
+                <!-- Category -->
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label text-right">Category</label>
+                  <div class="col-sm-9">
+                    <select class="form-control" name="category">
+                      <option value="">Select Category</option>
+                      <option>Technology</option>
+                      <option>Travel</option>
+                      <option>Lifestyle</option>
+                      <option>Education</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- Blog Date -->
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label text-right">Blog Date</label>
+                  <div class="col-sm-9">
+                    <input type="date" class="form-control" name="date" required>
+                  </div>
+                </div>
 
 
-                            
- <%- include("../footer") %>  
+                <!-- Image Upload -->
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label text-right">Blog Image</label>
+                  <div class="col-sm-9">
+                    <input type="file" class="custom-file-input" id="blogImage" name="image">
+                    <label class="custom-file-label" for="blogImage">Choose image…</label>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+              <div class="border-top">
+                <div class="card-body text-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <%- include("../footer") %>

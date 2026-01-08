@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= Blog.title %></title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background:#f3f6fb;
+      margin:0;
+      padding:20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .blog-card {
+      max-width: 400px;
+      width:100%;
+      background:#fff;
+      border-radius:18px;
+      padding:25px 28px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .blog-card h2 {
+      margin-top:0;
+      margin-bottom:15px;
+      font-size:28px;
+    }
+
+    .meta {
+      color:#777;
+      font-size:14px;
+      margin-bottom:18px;
+    }
+
+    .blog-card img {
+      width:100px;
+      border-radius:10px;
+      margin:15px 0 20px;
+      object-fit:cover;
+    }
+
+    .content {
+      line-height:1.7;
+      color:#333;
+      font-size:16px;
+      white-space:pre-wrap;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="blog-card">
+    <h2><%= Blog.title %></h2>
+    <div class="meta">
+      👁️ <strong><%= Blog.views || 0 %></strong> views
+    </div>
+    <img src="<%= Blog.image %>" alt="Blog image" />
+
+    <div class="content">
+      <%= Blog.content %>
+    </div>
+
+  </div>
+
+</body>
+
+
+</html>

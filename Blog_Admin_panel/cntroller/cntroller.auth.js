@@ -1,7 +1,7 @@
 exports.getBlog= async(req,res)=>{
     try {
         
-       return res.render("dasbord")
+       return res.render("dashboard")
 
     } catch (error) {
 

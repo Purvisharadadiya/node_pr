@@ -9,12 +9,14 @@ dbconnection()
 app.set("view engine", "ejs");
 
 app.use(express.static("public"))
+app.use("/uploads", express.static("uploads"))
+
 
 app.use("/", require ('./routers/routers.auth'))
 
 
 app.listen(port, () => {
-    console.log(`Express server running: http://localhost:${port}`);
+    console.log(`Express server running: http://localhost:${port}/dashboard`);
 });
 
 
