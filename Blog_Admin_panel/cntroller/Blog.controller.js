@@ -5,9 +5,7 @@ const fs = require("fs");
 
 exports.AddBlogpage = async (req, res) => {
     try {
-
         return res.render("Blog/Add-Blog")
-
     }
     catch (error) {
         console.log("error")
@@ -16,7 +14,6 @@ exports.AddBlogpage = async (req, res) => {
     }
 
 }
-
 
 
 exports.BlogView = async (req, res) => {

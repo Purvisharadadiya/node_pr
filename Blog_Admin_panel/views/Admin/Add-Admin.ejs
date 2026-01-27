@@ -1,0 +1,88 @@
+<%- include("../heder") %>
+
+<div class="page-wrapper">
+  <div class="page-breadcrumb">
+    <div class="row justify-content-center">
+      <div class="col-12 d-flex no-block">
+        <h4 class="page-title">Add Admin Information</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+
+          <form class="form-horizontal" 
+                method="POST" 
+                action="/admin/add" 
+                enctype="multipart/form-data">
+
+            <div class="card-body">
+              <h4 class="card-title text-center">Add Admin</h4>
+
+              <!-- Username -->
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label text-right">Username</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="username" required>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label text-right">Email</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" name="email" required>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label text-right">Password</label>
+                <div class="col-sm-9">
+                  <input type="password" class="form-control" name="password" required>
+                </div>
+              </div>
+
+              <!-- Gender -->
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label text-right">Gender</label>
+                <div class="col-sm-9">
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="male" name="gender" value="Male" class="custom-control-input">
+                    <label class="custom-control-label" for="male">Male</label>
+                  </div>
+
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="female" name="gender" value="Female" class="custom-control-input">
+                    <label class="custom-control-label" for="female">Female</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Profile Image -->
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label text-right">Profile Image</label>
+                <div class="col-sm-9">
+                  <input type="file" class="form-control" name="image">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="border-top">
+              <div class="card-body text-center">
+                <button type="submit" class="btn btn-primary">Add Admin</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include("../footer") %>

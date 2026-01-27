@@ -1,0 +1,131 @@
+<%- include('../header') %>
+
+    <style>
+        .blog-card {
+            max-width: 420px;
+            margin: auto;
+            border-radius: 18px;
+            overflow: hidden;
+            background: #fff;
+            transition: box-shadow .2s ease;
+        }
+
+        .blog-card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .blog-img {
+            height: 230px;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 18px 18px 0 0;
+        }
+
+        .category-text {
+            color: #6366f1;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .blog-title {
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .blog-desc {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .author-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .read-time {
+            font-size: 13px;
+            color: #6b7280;
+        }
+    </style>
+
+    <div class="page-wrapper">
+
+
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Single Blog Details</h4>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+
+
+
+
+                <div class="col-xl-6 col-lg-6 col-md-12 mb-5">
+
+                    <div class="card blog-card border-0">
+
+
+                        <img src="<%= singleview.blogImage %>" class="blog-img">
+
+
+                        <div class="card-body">
+
+
+                            <div class="category-text mb-2">
+                                <%= singleview.category%>
+                            </div>
+
+
+                            <h3 class="blog-title mb-2">
+                                <%= singleview.title %>
+                            </h3>
+
+
+                            <p class="blog-desc">
+                                <%= singleview.description.substring(0, 120) %>...
+                            </p>
+
+
+                            <div class="d-flex align-items-center justify-content-between mt-4">
+
+                                <div class="d-flex align-items-center gap-5">
+                                    <img src="<%= singleview.authorImage %>" class="author-img">
+
+                                    <div class="d-flex ">
+                                        <div class="fw-semibold small m-2">
+                                            <%= singleview.authorname %>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+
+                                <div class="d-flex justify-content-end">
+                                   <a href="/blog/view-blog"> <button class="btn-primary rounded rounded-5 border-0 ">Back</button></a>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <%- include('../footer') %>

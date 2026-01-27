@@ -1,0 +1,172 @@
+<%- include('../header') %>
+
+
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <!-- <h4 class="page-title">Form Basic</h4> -->
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Library
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <form class="form-horizontal" action="/blog/update-blog/<%= blog.id %>" method="post"
+                            enctype="multipart/form-data">
+                            <div class="card-body">
+                                <h4 class="card-title">Blog Info</h4>
+                                <div class="form-group row">
+                                    <label for="title"
+                                        class="col-sm-3 text-end control-label col-form-label">Title</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="title" placeholder="Title Here"
+                                            name="title" value="<%= blog.title %>" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="authorname"
+                                        class="col-sm-3 text-end control-label col-form-label">Author
+                                        Name</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="authorname"
+                                            placeholder="Author Name Here" name="authorname"
+                                            value="<%= blog.authorname %>" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-end control-label col-form-label">Author Image</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="validatedCustomFile"
+                                                name="authorImage" value="authorImage" />
+                                            <img src="<%= blog.authorImage %>" width="50" alt="">
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose
+                                                file...</label>
+                                            <div class="invalid-feedback">
+                                                Example invalid custom file feedback
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Description"
+                                        class="col-sm-3 text-end control-label col-form-label">Description</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="description"
+                                            placeholder="Description Here" name="description"
+                                            value="<%= blog.description %>" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="Publish Date"
+                                        class="col-sm-3 text-end control-label col-form-label">Publish Date</label>
+                                    <div class="col-sm-9">
+                                        <input type="date" class="form-control" id="Publish Date" name="publishDate"
+                                            value="<%= blog.publishDate ? blog.publishDate.toISOString().split('T')[0] : '' %>" />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 text-end control-label col-form-label">Category</label>
+                                    <div class="col-md-9 d-flex">
+                                        <div class="form-check mx-2">
+                                            <input type="radio" class="form-check-input" id="customControlValidation1"
+                                                name="category" value="Technology" <%=blog.category==='Technology'
+                                                ? 'checked' : "" %> />
+                                            <label class="form-check-label mb-0" for="customControlValidation1">
+                                                Technology</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="customControlValidation2"
+                                                name="category" value="education" <%=blog.category==='education'
+                                                ? 'checked' : "" %> />
+                                            <label class="form-check-label mb-0"
+                                                for="customControlValidation2">Education
+                                            </label>
+                                        </div>
+
+                                        <div class="form-check">
+                                            <input type="radio" class="form-check-input" id="customControlValidation3"
+                                                name="category" value="CareerGuidance" <%=blog.category==='CareerGuidance' ? 'checked'
+                                                : "" %> />
+                                            <label class="form-check-label mb-0" for="customControlValidation2">Career Guidance
+                                            </label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-md-3 text-end control-label col-form-label">Blog Image</label>
+                                    <div class="col-md-9">
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="validatedCustomFile"
+                                                name="blogImage" value="blogImage" />
+                                            <img src="<%= blog.blogImage %>" width="70" alt="">
+                                            <label class="custom-file-label" for="validatedCustomFile">Choose
+                                                file...</label>
+                                            <div class="invalid-feedback">
+                                                Example invalid custom file feedback
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="border-top">
+                                <div class="card-body d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- editor -->
+
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+
+
+        <%- include('../footer') %>
