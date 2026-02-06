@@ -1,0 +1,59 @@
+<%- include('../header') %>
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="page-title">View Products</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <% products.forEach((product) => { %>
+                <div class="col-md-3">
+                    <div class="card">
+
+                        <!-- Product Image -->
+                        <img 
+                            src="<%= product.ProductImage %>" 
+                            class="card-img-top" 
+                            style="height:200px; object-fit:cover;"
+                            alt="product"
+                        >
+
+                        <div class="card-body text-center">
+
+                            <!-- Product Name -->
+                            <h5 class="card-title">
+                                <%= product.ProductName %>
+                            </h5>
+
+                            <!-- Product Price -->
+                            <p class="card-text text-success font-weight-bold">
+                                ₹ <%= product.Productprice %>
+                            </p>
+
+                            <!-- Action Buttons -->
+                            <a href="/product/edit-product/<%= product._id %>" 
+                               class="btn btn-primary btn-sm">
+                                Edit
+                            </a>
+
+                            <a href="/product/delete-product/<%= product._id %>" 
+                               class="btn btn-danger btn-sm">
+                                Delete
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+
+        </div>
+    </div>
+</div>
+
+<%- include('../footer') %>

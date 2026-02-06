@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Jewellery</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:Poppins,sans-serif;
+    }
+
+    header{
+      background: rgba(92, 62, 46, 0.95);
+      color:#fff;
+      padding:15px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    header h2{ margin:0; }
+
+    header a{
+      color:#f5f0eb;
+      text-decoration:none;
+      margin-left:20px;
+    }
+
+    /* ===== CART ICON + BADGE ===== */
+    .cart-wrapper{
+      position:relative;
+      margin-left:25px;
+      cursor:pointer;
+      font-size:20px;
+    }
+
+    #cart-count{
+      position:absolute;
+      top:-6px;
+      right:-10px;
+      background:red;
+      color:#fff;
+      font-size:12px;
+      padding:2px 6px;
+      border-radius:50%;
+      font-weight:bold;
+      display:none;
+    }
+
+    /* ===== SIDE CART ===== */
+    #side-cart{
+      position:fixed;
+      top:0;
+      right:-380px;
+      width:360px;
+      height:100%;
+      background:#fff;
+      box-shadow:-5px 0 20px rgba(0,0,0,.3);
+      transition:.4s;
+      z-index:9999;
+    }
+
+    #side-cart.active{ right:0; }
+
+    .cart-header{
+      padding:15px;
+      background:#f5f0eb;
+      display:flex;
+      justify-content:space-between;
+      font-weight:bold;
+    }
+
+    .cart-body{
+      padding:15px;
+      height:calc(100% - 200px);
+      overflow-y:auto;
+    }
+
+    .cart-card{
+      display:flex;
+      gap:10px;
+      border-bottom:1px solid #eee;
+      padding:10px 0;
+    }
+
+    .cart-card img{
+      width:70px;
+      height:70px;
+      object-fit:cover;
+    }
+
+    .cart-info h4{
+      margin:0;
+      font-size:15px;
+    }
+
+    .cart-info p{
+      margin:5px 0;
+      color:#b08d57;
+      font-weight:600;
+    }
+
+    .qty{
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+
+    .qty button{
+      width:24px;
+      height:24px;
+      border:1px solid #ccc;
+      background:#fff;
+      cursor:pointer;
+    }
+
+    .remove{
+      margin-left:auto;
+      cursor:pointer;
+      font-size:18px;
+    }
+
+    .cart-footer{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:15px;
+      border-top:1px solid #ddd;
+    }
+
+    .cart-footer p{
+      margin:0 0 10px;
+      font-weight:bold;
+    }
+
+    .cart-footer button{
+      width:100%;
+      padding:10px;
+      border:none;
+      margin-bottom:8px;
+      cursor:pointer;
+    }
+
+    .view-cart{
+      background:#5c3e2e;
+      color:#fff;
+    }
+
+    .checkout{
+      background:#d4af37;
+      color:#fff;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Jewellery</h2>
+  <nav>
+    <a href="/websitepage">Home</a>
+    <a href="/websitepage/Product-details">Product</a>
+    <a href="/websitepage/Contact">Contact</a>
+
+    <span class="cart-wrapper" onclick="openCart()">
+      🛒
+      <span id="cart-count">0</span>
+    </span>
+  </nav>
+</header>
+
+<!-- ===== SIDE CART ===== -->
+<div id="side-cart">
+  <div class="cart-header">
+    <span>My shopping cart</span>
+    <span onclick="closeCart()" style="cursor:pointer">✖</span>
+  </div>
+
+  <div class="cart-body" id="cart-body"></div>
+
+  <div class="cart-footer">
+    <p id="subtotal">Subtotal : ₹ 0</p>
+    <a href="/cart/cart-single"><button class="view-cart">View Cart</button></a>
+    <a href="/cart/checkout"><button class="checkout">Checkout</button></a>
+  </div>
+</div>
+
+<script>
+/* ===== OPEN / CLOSE CART ===== */
+function openCart(){
+  document.getElementById("side-cart").classList.add("active");
+  loadCart();
+  loadCartCount();
+}
+
+function closeCart(){
+  document.getElementById("side-cart").classList.remove("active");
+}
+
+/* ===== LOAD CART DATA ===== */
+function loadCart(){
+  fetch("/cart/cart-json")
+    .then(res => res.json())
+    .then(items => {
+      const cartBody = document.getElementById("cart-body");
+      cartBody.innerHTML = "";
+      let total = 0;
+
+      items.forEach(item => {
+        const price = item.productId.Productprice;
+        const qty = item.quantity;
+        total += price * qty;
+
+        const card = document.createElement("div");
+        card.className = "cart-card";
+
+        card.innerHTML = `
+          <img src="${item.productId.ProductImage}">
+          <div class="cart-info">
+            <h4>${item.productId.ProductName}</h4>
+            <p>₹ ${price}</p>
+            <div class="qty">
+              <button onclick="updateQty('${item._id}','minus')">-</button>
+              <span>${qty}</span>
+              <button onclick="updateQty('${item._id}','plus')">+</button>
+            </div>
+          </div>
+          <span class="remove" onclick="removeItem('${item._id}')">✖</span>
+        `;
+        cartBody.appendChild(card);
+      });
+
+      document.getElementById("subtotal").innerText =
+        "Subtotal : ₹ " + total;
+    });
+}
+
+/* ===== CART COUNT BADGE ===== */
+function loadCartCount(){
+  fetch("/cart/cart-json")
+    .then(res => res.json())
+    .then(items => {
+      let count = 0;
+      items.forEach(item => count += item.quantity);
+
+      const badge = document.getElementById("cart-count");
+      if(count > 0){
+        badge.innerText = count;
+        badge.style.display = "block";
+      }else{
+        badge.style.display = "none";
+      }
+    });
+}
+
+/* ===== UPDATE / REMOVE ===== */
+function updateQty(cartId, action){
+  fetch("/cart/cart-update",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({ cartId, action })
+  }).then(() => {
+    loadCart();
+    loadCartCount();
+  });
+}
+
+function removeItem(cartId){
+  fetch("/cart/cart-remove",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({ cartId })
+  }).then(() => {
+    loadCart();
+    loadCartCount();
+  });
+}
+
+/* ===== PAGE LOAD ===== */
+window.onload = () => {
+  loadCartCount();
+};
+</script>
+
+</body>
+</html>

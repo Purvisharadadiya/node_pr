@@ -12,6 +12,7 @@ passport.use(new localstrategy({ usernameField: 'email' }, async (email, passwor
     let matchpass = await bcrypt.compare(password, admin.password)
     if (!matchpass) {
         return cb(null, false)
+        
     }
 
     return cb(null, admin)

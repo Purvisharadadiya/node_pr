@@ -1,8 +1,6 @@
 const BlogModel = require('../model/Blog.model')
-
 const path = require("path");
 const fs = require("fs");
-
 exports.AddBlogpage = async (req, res) => {
     try {
         return res.render("Blog/Add-Blog")

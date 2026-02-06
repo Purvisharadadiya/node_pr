@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= product.ProductName %>
+    </title>
+
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background: #f8f5f0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .single-product {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .single-product img {
+            width: 100%;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+
+        .details h1 {
+            color: #3b2a20;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 22px;
+            color: #b08d57;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+
+        .info p {
+            margin: 6px 0;
+            color: #555;
+        }
+
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .cart {
+            background: #d4af37;
+            color: #fff;
+        }
+
+        .back {
+            background: #3b2a20;
+            color: #fff;
+        }
+
+        @media(max-width:768px) {
+            .single-product {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <%- include('../common/header') %>
+
+        <div class="container">
+            <div class="single-product">
+
+
+                <img src="<%= product.ProductImage %>" alt="<%= product.ProductName %>">
+
+
+                <div class="details">
+                    <h1>
+                        <%= product.ProductName %>
+                    </h1>
+
+                    <p class="price">₹ <%= product.Productprice %>
+                    </p>
+
+                    <div class="info">
+                        <p>
+                            <strong>Category :</strong>
+                            <%= product.CategoryId?.Categoryname %>
+                        </p>
+
+                        <p>
+                            <strong>Sub Category :</strong>
+                            <%= product.SubCategoryId?.SubCategoryName %>
+                        </p>
+
+                        <p>
+                            <strong>Type :</strong>
+                            <%= product.ExtraSubCategoryId?.ExtraSubCategoryname %>
+                        </p>
+                    </div>
+
+                    <button class="btn cart" onclick="addToCart(this)" data-id="<%= product._id %>">
+                        Add to Cart
+                    </button>
+
+
+                    <a href="/websitepage/product-details" class="btn back">
+                        Back to Products
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jewellery Website</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        /* ================= HERO ================= */
+        .hero {
+            height: 90vh;
+            background:
+            linear-gradient(rgba(60,40,30,0.45), rgba(60,40,30,0.45)),
+            url("https://i.pinimg.com/1200x/56/be/19/56be197207e82eaf2b4a38766373889b.jpg")
+            center/cover;
+            display: flex;
+            align-items: center;
+            padding-left: 80px;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            color: #f2ede8;
+        }
+
+        .btn {
+            background: #d4af37;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: #b8962e;
+        }
+
+        /* ================= SECTION COMMON ================= */
+        .section {
+            padding: 70px 60px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 32px;
+            color: #3b2a20;
+        }
+
+        /* ================= CATEGORIES ================= */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .category-card {
+            text-align: center;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .category-card h3 {
+            margin-top: 15px;
+            color: #5c3e2e;
+        }
+
+        /* ================= PRODUCTS ================= */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            border: 1px solid #eee;
+            padding: 15px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .product-card h4 {
+            margin: 15px 0 5px;
+            color: #3b2a20;
+        }
+
+        .product-card p {
+            color: #b08d57;
+            font-weight: 600;
+        }
+
+        /* ================= BANNER ================= */
+        .banner {
+            background: #f8f5f0;
+            padding: 80px;
+            text-align: center;
+        }
+
+        .banner h2 {
+            color: #3b2a20;
+            margin-bottom: 10px;
+        }
+
+        .banner p {
+            margin-bottom: 25px;
+            color: #6f5a4d;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #3b2a20;
+            color: #e5dcd5;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<%- include("../common/header") %>
+
+<section class="hero">
+    <div>
+        <h1>Timeless Jewellery</h1>
+        <p>Elegance crafted for every moment</p>
+        <a href="#" class="btn">Shop Now</a>
+    </div>
+</section>
+
+<!-- CATEGORY -->
+<section class="section">
+    <h2 class="section-title">Shop By Category</h2>
+
+    <div class="categories">
+        <div class="category-card">
+            <img src="https://i.pinimg.com/1200x/37/fe/2c/37fe2c90a508a0474327a33935f62ec4.jpg">
+            <h3>Necklace</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://i.pinimg.com/736x/62/15/b3/6215b376a7f9ff4098a263282c8e1ca3.jpg">
+            <h3>Earrings</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://i.pinimg.com/736x/8b/04/5e/8b045e8a5a52492643b49b7fda9e6643.jpg">
+            <h3>Rings</h3>
+        </div>
+
+        <div class="category-card">
+            <img src="https://i.pinimg.com/1200x/f9/ae/5c/f9ae5cd9221cd279e401ba6a7d7f72f1.jpg">
+            <h3>Bangles</h3>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2 class="section-title">Featured Products</h2>
+
+    <div class="products">
+        <div class="product-card">
+            <img src="https://i.pinimg.com/1200x/50/26/91/502691410c970509f40df1665ae2c103.jpg">
+            <h4>Gold Bridal Necklace</h4>
+            <p>₹ 85,000</p>
+        </div>
+
+        <div class="product-card">
+            <img src="https://i.pinimg.com/736x/16/43/60/1643606a64a2727909b5a562bdb0d08a.jpg">
+            <h4>Diamond Earrings</h4>
+            <p>₹ 42,500</p>
+        </div>
+
+        <div class="product-card">
+            <img src="https://i.pinimg.com/736x/b7/f0/79/b7f07986888daf0410d1a5e02c43293c.jpg">
+            <h4>Elegant Gold Ring</h4>
+            <p>₹ 25,000</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- BANNER -->
+<section class="banner">
+    <h2>Wedding Jewellery Collection</h2>
+    <p>Celebrate your special day with elegance</p>
+    <a href="#" class="btn">Explore Collection</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Jewellery Store. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

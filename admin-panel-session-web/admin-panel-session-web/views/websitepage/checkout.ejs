@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+
+  <style>
+    body{
+      font-family:Poppins, sans-serif;
+      background:#f8f5f0;
+      margin:0;
+    }
+
+    .checkout-container{
+      max-width:600px;
+      margin:60px auto;
+      background:#fff;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .checkout-container h2{
+      margin-bottom:20px;
+      color:#5c3e2e;
+    }
+
+    .payment-box{
+      background:#fafafa;
+      padding:20px;
+      border-radius:10px;
+      margin-bottom:25px;
+      border:1px solid #eee;
+    }
+
+    .payment-box p{
+      margin:0;
+      font-size:16px;
+    }
+
+    .place-order-btn{
+      width:100%;
+      padding:14px;
+      font-size:16px;
+      background:#5c3e2e;
+      color:#fff;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .place-order-btn:hover{
+      background:#4a3124;
+    }
+  </style>
+</head>
+
+<body>
+
+<%- include('../common/header') %>
+
+<div class="checkout-container">
+  <h2>Checkout</h2>
+
+  <div class="payment-box">
+    <p><strong>Payment Mode:</strong> Cash on Delivery</p>
+  </div>
+
+  <button class="place-order-btn">Place Order</button>
+</div>
+
+</body>
+</html>

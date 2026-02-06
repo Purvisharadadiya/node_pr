@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart</title>
+
+  <style>
+    body{
+      font-family:Poppins,sans-serif;
+      background:#f8f5f0;
+    }
+
+    .cart-table{
+      list-style:none;
+      padding:0;
+      margin:30px auto;
+      max-width:1000px;
+      background:#fff;
+      border-radius:10px;
+    }
+
+    .cart-header,
+    .cart-row{
+      display:grid;
+      grid-template-columns: 2fr 1fr 1fr 0.5fr;
+      align-items:center;
+      padding:20px;
+      border-bottom:1px solid #eee;
+    }
+
+    .cart-header{
+      font-weight:600;
+      background:#fafafa;
+    }
+
+    .cart-product{
+      display:flex;
+      gap:15px;
+      align-items:center;
+    }
+
+    .cart-product img{
+      width:80px;
+      border-radius:6px;
+    }
+
+    .cart-qty{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+
+    .cart-qty button{
+      width:30px;
+      height:30px;
+      border:1px solid #ccc;
+      background:#fff;
+      cursor:pointer;
+    }
+
+    .cart-total{
+      font-weight:600;
+    }
+
+    .remove{
+      cursor:pointer;
+      color:red;
+      font-size:18px;
+    }
+
+    .checkout-box{
+      max-width:1000px;
+      margin:20px auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .checkout-btn{
+      padding:12px 30px;
+      background:#5c3e2e;
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<%- include('../common/header') %>
+
+<% let grandTotal = 0; %>
+
+<% if (items && items.length > 0) { %>
+
+<ul class="cart-table">
+
+  <li class="cart-header">
+    <span>Product</span>
+    <span>Quantity</span>
+    <span>Total</span>
+    <span>Remove</span>
+  </li>
+
+  <% items.forEach(item => { 
+      grandTotal += item.productId.Productprice * item.quantity;
+  %>
+
+  <li class="cart-row">
+
+    
+    <div class="cart-product">
+      <img src="<%= item.productId.ProductImage %>">
+      <div>
+        <h4><%= item.productId.ProductName %></h4>
+        <p>₹ <%= item.productId.Productprice %></p>
+      </div>
+    </div>
+
+  
+    <div class="cart-qty">
+      <button onclick="updateQty('<%= item._id %>','minus')">-</button>
+      <span><%= item.quantity %></span>
+      <button onclick="updateQty('<%= item._id %>','plus')">+</button>
+    </div>
+
+   
+    <div class="cart-total">
+      ₹ <%= item.productId.Productprice * item.quantity %>
+    </div>
+
+    
+    <div class="remove" onclick="removeItem('<%= item._id %>')">
+      🗑
+    </div>
+
+  </li>
+  <% }) %>
+
+</ul>
+
+
+<div class="checkout-box">
+  <h3>Grand Total : ₹ <%= grandTotal %></h3>
+ <form action="/cart/checkout" method="GET">
+  <button class="checkout-btn">Checkout</button>
+</form>
+</div>
+
+<% } else { %>
+  <p style="text-align:center">No product in cart</p>
+<% } %>
+
+<script>
+function updateQty(cartId, action){
+  fetch("/cart/cart-update",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({ cartId, action })
+  }).then(()=>location.reload());
+}
+
+function removeItem(cartId){
+  fetch("/cart/cart-remove",{
+    method:"POST",
+    headers:{ "Content-Type":"application/json" },
+    body:JSON.stringify({ cartId })
+  }).then(()=>location.reload());
+}
+</script>
+
+</body>
+</html>
