@@ -64,8 +64,8 @@ exports.myprofile = ((req, res) => {
 
 exports.changepasswordpage = async (req, res) => {
     try {
-        let user = req.cookies.admin;
-        return res.render("changepassword", { user });
+       
+        return res.render("changepassword");
     }
     catch (err) {
         console.log(err);

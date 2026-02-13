@@ -30,7 +30,7 @@
       margin-left:20px;
     }
 
-    /* ===== CART ICON + BADGE ===== */
+    
     .cart-wrapper{
       position:relative;
       margin-left:25px;
@@ -190,7 +190,7 @@
 </div>
 
 <script>
-/* ===== OPEN / CLOSE CART ===== */
+
 function openCart(){
   document.getElementById("side-cart").classList.add("active");
   loadCart();
@@ -201,7 +201,7 @@ function closeCart(){
   document.getElementById("side-cart").classList.remove("active");
 }
 
-/* ===== LOAD CART DATA ===== */
+
 function loadCart(){
   fetch("/cart/cart-json")
     .then(res => res.json())
@@ -239,7 +239,7 @@ function loadCart(){
     });
 }
 
-/* ===== CART COUNT BADGE ===== */
+
 function loadCartCount(){
   fetch("/cart/cart-json")
     .then(res => res.json())
@@ -257,7 +257,7 @@ function loadCartCount(){
     });
 }
 
-/* ===== UPDATE / REMOVE ===== */
+
 function updateQty(cartId, action){
   fetch("/cart/cart-update",{
     method:"POST",
@@ -280,7 +280,7 @@ function removeItem(cartId){
   });
 }
 
-/* ===== PAGE LOAD ===== */
+
 window.onload = () => {
   loadCartCount();
 };

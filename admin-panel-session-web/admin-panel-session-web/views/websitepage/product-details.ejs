@@ -125,7 +125,7 @@
 
         <h1>Our Jewellery Products </h1>
 
-        
+
         <div class="filter-bar">
             <input type="text" id="searchInput" placeholder="Search jewellery...">
 
@@ -138,7 +138,7 @@
             </select>
         </div>
 
-      
+
         <div class="products">
             <% products.forEach(p=> { %>
                 <div class="product-card" data-name="<%= p.ProductName.toLowerCase() %>"
@@ -158,25 +158,24 @@
                             View
                         </a>
 
-                        <button class="btn cart" onclick="addToCart(this)" data-id="<%= p._id %>"
-                            data-name="<%= p.ProductName %>" data-price="<%= p.Productprice %>"
-                            data-image="<%= p.ProductImage %>">
+                        <button class="btn cart" onclick="addToCart(this)" data-id="<%= p._id %>">
                             Add to Cart
                         </button>
+
 
                     </div>
                 </div>
                 <% }) %>
         </div>
 
-       
+
         <script>
             const searchInput = document.getElementById("searchInput");
             const sortSelect = document.getElementById("sortSelect");
             const productCards = Array.from(document.querySelectorAll(".product-card"));
             const productContainer = document.querySelector(".products");
 
-           
+
             searchInput.addEventListener("input", () => {
                 const value = searchInput.value.toLowerCase();
                 productCards.forEach(card => {
@@ -185,7 +184,7 @@
                 });
             });
 
-            
+
             sortSelect.addEventListener("change", () => {
                 let sorted = [...productCards];
 
@@ -207,6 +206,31 @@
 
                 sorted.forEach(card => productContainer.appendChild(card));
             });
+           
+function addToCart(btn) {
+  const productId = btn.getAttribute("data-id");
+
+  fetch("/cart/add-to-cart", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ productId })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      alert("Added to cart 🛒");
+      
+      
+      if (typeof loadCartCount === "function") {
+        loadCartCount();
+      }
+    }
+  })
+  .catch(err => console.log(err));
+}
+
         </script>
 
 </body>
