@@ -56,4 +56,3 @@ exports.updateemployeeprofie = async (req, res) => {
 }
 
 
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBsb3llZWlkIjoiNjk4YzYwNzZmOGQ3NGUxNGY4YzQ0YjIwIiwiaWF0IjoxNzcwODE0NDM1fQ.l74wAMyA2AYheZ9_zX9PH6Kbm0kt__OO3jVPEZxbNQ8

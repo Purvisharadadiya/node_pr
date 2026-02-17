@@ -64,7 +64,7 @@ exports.addemployee = async (req, res) => {
         })
 
         sendMail({
-            from: "denishadashlani@gmail.com",
+            from: "purva.radadiya3110@gmail.com",
             to: employee.Email,
             subject: "Welcome Employee",
             html: `
@@ -123,15 +123,7 @@ exports.deleteemployee = async (req, res) => {
         if (!employee || employee.isdelete == true) {
             return res.status(StatusCodes.NOT_FOUND).json({ message: "employee not found" });
         }
-        // if (employee.ProfileImage != "") {
-        //     filepath = path.join(__dirname, "..", employee.ProfileImage);
-        // }
-        // try {
-        //     fs.unlinkSync(filepath);
-        // }
-        // catch (err) {
-        //     console.log("file is missing");
-        // }
+       
         await Employee.findByIdAndUpdate(employee._id, { isdelete: true }, { new: true });
         return res.status(StatusCodes.OK).json({ message: "employee deleted successfully" });
     }
@@ -190,5 +182,3 @@ exports.updatemanagerprofie = async (req, res) => {
 }
 
 
-// denu@gmail.com
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYW5hZ2VyaWQiOiI2OThiZjlmOTQ0YzE5ODU5ZWEwMDJhZGEiLCJpYXQiOjE3NzA3ODM0MjB9.iLmu-rfFbrWG2vx23A7FmKQvmw4BfBTrIeSDBKzSTpo 

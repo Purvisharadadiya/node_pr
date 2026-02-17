@@ -228,7 +228,7 @@ exports.addmanger = async (req, res) => {
         })
 
         await sendMail({
-            from: "denishadashlani@gmail.com",
+            from: "purva.radadiya3110@gmail.com",
             to: manager.Email,
             subject: "Welcome Manager",
             html: `
@@ -291,15 +291,7 @@ exports.deletemanager = async (req, res) => {
         if (!manager || manager.isdelete == true) {
             return res.status(StatusCodes.NOT_FOUND).json({ message: "manager not found" });
         }
-        // if (manager.ProfileImage != "") {
-        //     filepath = path.join(__dirname, "..", manager.ProfileImage);
-        // }
-        // try {
-        //     fs.unlinkSync(filepath);
-        // }
-        // catch (err) {
-        //     console.log("file is missing");
-        // }
+      
         await Manager.findByIdAndUpdate(manager._id, { isdelete: true }, { new: true });
         return res.status(StatusCodes.OK).json({ message: "manager deleted successfully" });
     }
@@ -345,7 +337,3 @@ exports.getmanager = async (req, res) => {
 
 
 
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlkIjoiNjk4YjJlZTdkNWM4YzhhOWM5MmUzYTlhIiwiaWF0IjoxNzcwNzI5ODg4fQ.GzeWY8WR4CoX77B4eTTJKWwvyM7PwTpnXrr-UCjEg4c
-
-// denisha
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbmlkIjoiNjk4YjZkMDRlODcxN2I4Mzc3ZWRjN2I4IiwiaWF0IjoxNzcwNzQ1MTMyfQ.DjkevzKKCpdgGPdD7refkxgIDn48ypsCPDEwAdEy48M
